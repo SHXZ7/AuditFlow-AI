@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pymongo
+motor
+python-dotenv
+openai
+playwright
+jinja2
+weasyprint
+resend
+email-validator
+gspread
+oauth2client
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib

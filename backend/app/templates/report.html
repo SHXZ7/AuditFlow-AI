@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #e8e4dc;
+            color: #1a1714;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #f5f1ea;
+            position: relative;
+        }
+
+        /* ── Accent bar top ── */
+        .page::before {
+            content: '';
+            display: block;
+            height: 5px;
+            background: #c0392b;
+            width: 100%;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 44px 48px 28px;
+            position: relative;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #1a1714;
+            color: #1a1714;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+        }
+
+        .brand-meta {
+            border-left: 2.5px solid #c0392b;
+            padding-left: 16px;
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #c0392b;
+        }
+
+        .brand-name {
+            margin-top: 4px;
+            font-size: 13px;
+            font-weight: 400;
+            color: #6b6560;
+        }
+
+        .badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #1a1714;
+            border: 2px solid #1a1714;
+            padding: 8px 14px;
+        }
+
+        /* ── Hero divider ── */
+        .hero-rule {
+            height: 2px;
+            background: #1a1714;
+            margin-bottom: 28px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+            color: #1a1714;
+            max-width: 600px;
+        }
+
+        h1 em {
+            font-style: italic;
+            font-weight: 700;
+            color: #c0392b;
+        }
+
+        .hero-copy {
+            font-size: 13px;
+            font-weight: 300;
+            color: #5a5550;
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 18px;
+        }
+
+        .website {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: #c0392b;
+            margin-bottom: 28px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Content ── */
+        .content {
+            padding: 0 48px 42px;
+        }
+
+        /* ── Metrics ── */
+        .metrics {
+            display: flex;
+            gap: 0;
+            margin-bottom: 32px;
+            margin-top: 28px;
+            border: 2px solid #1a1714;
+        }
+
+        .metric {
+            flex: 1;
+            padding: 22px 20px;
+            border-right: 2px solid #1a1714;
+            position: relative;
+        }
+
+        .metric:last-child {
+            border-right: none;
+        }
+
+        .metric-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #9a9490;
+        }
+
+        .metric-value {
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1714;
+            line-height: 1;
+        }
+
+        .metric-detail {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 300;
+            color: #7a7570;
+            line-height: 1.5;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin-top: 32px;
+        }
+
+        .section:first-of-type {
+            margin-top: 24px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a1714;
+        }
+
+        .section-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            color: #c0392b;
+            letter-spacing: 0.1em;
+            min-width: 20px;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1714;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Summary ── */
+        .summary-card {
+            padding: 20px 24px;
+            background: #ede9e1;
+            border-left: 5px solid #c0392b;
+            font-size: 14px;
+            font-weight: 300;
+            color: #2a2522;
+            line-height: 1.7;
+        }
+
+        /* Homepage screenshot */
+        .screenshot-frame {
+            background: #1a1714;
+            padding: 12px;
+            border-top: 3px solid #c0392b;
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 2px 2px 10px;
+        }
+
+        .browser-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #c0392b;
+        }
+
+        .browser-dot:nth-child(2) {
+            background: #d7a24b;
+        }
+
+        .browser-dot:nth-child(3) {
+            background: #5f8f72;
+        }
+
+        .homepage-screenshot {
+            display: block;
+            width: 100%;
+            max-height: 310px;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid rgba(245, 241, 234, 0.18);
+        }
+
+        .visual-note {
+            margin-top: 10px;
+            font-size: 11px;
+            font-weight: 300;
+            color: #6b6560;
+            line-height: 1.6;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .evidence-card {
+            padding: 16px 18px;
+            background: #ede9e1;
+            border-left: 4px solid #c0392b;
+            break-inside: avoid;
+        }
+
+        .evidence-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #c0392b;
+            margin-bottom: 8px;
+        }
+
+        .evidence-value {
+            font-size: 12px;
+            color: #2a2522;
+            line-height: 1.55;
+        }
+
+        .priority-list {
+            margin-top: 8px;
+        }
+
+        .priority-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 7px 0;
+            border-bottom: 1px solid #d8d2c8;
+            font-size: 11px;
+            color: #4a4540;
+        }
+
+        .priority-row:last-child {
+            border-bottom: none;
+        }
+
+        .priority-source {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            color: #9a9490;
+            white-space: nowrap;
+        }
+
+        .signal-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .signal-pill {
+            padding: 9px 10px;
+            background: #f5f1ea;
+            border: 1px solid #ccc8c0;
+            font-size: 10px;
+            color: #4a4540;
+        }
+
+        .signal-pill strong {
+            color: #1a1714;
+        }
+
+        /* ── Scorecards ── */
+        .scorecards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .scorecard {
+            flex: 0 0 calc(50% - 6px);
+            padding: 18px 20px;
+            background: #1a1714;
+            color: #f5f1ea;
+            border-top: 3px solid #c0392b;
+        }
+
+        .scorecard:nth-child(2n) {
+            background: #2e2420;
+        }
+
+        .score-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .score-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(245, 241, 234, 0.7);
+            max-width: 160px;
+            line-height: 1.4;
+        }
+
+        .score-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #f5f1ea;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .score-value span {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(245, 241, 234, 0.5);
+            vertical-align: super;
+        }
+
+        .score-track {
+            width: 100%;
+            height: 3px;
+            background: rgba(245, 241, 234, 0.2);
+            margin-bottom: 12px;
+            border-radius: 2px;
+        }
+
+        .score-fill {
+            height: 3px;
+            background: #c0392b;
+            border-radius: 2px;
+        }
+
+        .score-reason {
+            font-size: 11px;
+            font-weight: 300;
+            color: rgba(245, 241, 234, 0.7);
+            line-height: 1.5;
+        }
+
+        /* ── Insights ── */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .insight-card {
+            padding: 20px 22px;
+            background: #f5f1ea;
+            border: 2px solid #ccc8c0;
+            border-left: 5px solid #c0392b;
+        }
+
+        .insight-card:nth-child(2n) {
+            background: #ede9e1;
+        }
+
+        .insight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1714;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ccc8c0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-left: 14px;
+            font-size: 12px;
+            font-weight: 300;
+            color: #4a4540;
+            line-height: 1.5;
+        }
+
+        li::before {
+            content: '▪';
+            position: absolute;
+            left: 2px;
+            top: 1px;
+            color: #c0392b;
+            font-size: 7px;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Highlight / Recommended Focus ── */
+        .highlight {
+            margin-top: 32px;
+            padding: 28px 28px;
+            background: #1a1714;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            border-top: 3px solid #c0392b;
+        }
+
+        .highlight-accent {
+            width: 3px;
+            background: #c0392b;
+            flex-shrink: 0;
+            align-self: stretch;
+            min-height: 48px;
+        }
+
+        .highlight-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+
+        .highlight-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            color: #f5f1ea;
+            line-height: 1.45;
+        }
+
+        /* ── Confidence Badge ── */
+        .confidence-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding: 14px 16px;
+            background: #f0ebe5;
+            border: 1px solid #ccc8c0;
+            border-radius: 4px;
+        }
+
+        .confidence-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #c0392b;
+        }
+
+        .confidence-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1714;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 14px;
+            border-top: 1px solid #ccc8c0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: #9a9490;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="hero">
+            <div class="brand-row">
+                <div class="brand">
+                    <div class="logo">
+                        {{ logo_text }}
+                    </div>
+                    <div class="brand-meta">
+                        <div class="eyebrow">AI Growth Audit</div>
+                        <div class="brand-name">Personalized startup-grade report</div>
+                    </div>
+                </div>
+
+                <div class="badge">Premium Analysis</div>
+            </div>
+
+            <div class="hero-rule"></div>
+
+            <h1>{{ company }}<br><em>Growth Intelligence</em></h1>
+
+            <p class="hero-copy">
+                A focused review of positioning, conversion readiness, automation potential,
+                and practical AI opportunities for the next stage of growth.
+            </p>
+
+            {% if website %}
+            <div class="website">{{ website }}</div>
+            {% endif %}
+        </div>
+
+        <div class="content">
+
+            <!-- Metrics -->
+            <div class="metrics">
+                {% for metric in metrics %}
+                <div class="metric">
+                    <div class="metric-label">{{ metric.label }}</div>
+                    <div class="metric-value">{{ metric.value }}</div>
+                    <div class="metric-detail">{{ metric.detail }}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Snapshot -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">01</div>
+                    <h2>Company Snapshot</h2>
+                </div>
+                <div class="summary-card">
+                    {{ summary or "The available website data was reviewed to identify growth signals, conversion blockers, and practical AI automation opportunities." }}
+                </div>
+            </div>
+
+            <!-- Hero Messaging -->
+            {% if hero_heading %}
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">02</div>
+                    <h2>Primary Value Proposition</h2>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-label">Hero Headline</div>
+                    <div class="evidence-value" style="font-style: italic; font-size: 14px; line-height: 1.6;">
+                        "{{ hero_heading }}"
+                    </div>
+                    <div class="visual-note" style="margin-top: 12px;">
+                        This is the website's primary positioning statement from the hero section.
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Primary CTAs -->
+            {% if primary_buttons %}
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading %}03{% else %}02{% endif %}</div>
+                    <h2>Primary Call-to-Actions</h2>
+                </div>
+                <div class="evidence-grid">
+                    {% for button in primary_buttons %}
+                    <div class="evidence-card">
+                        <div class="evidence-label">Button {{ loop.index }}</div>
+                        <div class="evidence-value">
+                            {{ button }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Navigation Structure -->
+            {% if nav_items %}
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons %}04{% elif hero_heading or primary_buttons %}03{% else %}02{% endif %}</div>
+                    <h2>Navigation Structure</h2>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-label">Detected Menu Items</div>
+                    <div class="priority-list">
+                        {% for item in nav_items %}
+                        <div class="priority-row">
+                            <span>{{ item }}</span>
+                            <span class="priority-source">Position {{ loop.index }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="visual-note" style="margin-top: 12px;">
+                        These navigation items indicate the site's key value propositions and audience segments.
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if screenshot %}
+            <!-- Homepage Preview -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons and nav_items %}05{% elif hero_heading or primary_buttons or nav_items %}04{% elif hero_heading or primary_buttons %}03{% else %}02{% endif %}</div>
+                    <h2>Homepage Preview</h2>
+                </div>
+                <div class="screenshot-frame">
+                    <div class="browser-bar">
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                    </div>
+                    <img
+                      class="homepage-screenshot"
+                      src="{{ screenshot }}"
+                      alt="Rendered homepage screenshot"
+                    />
+                </div>
+                <div class="visual-note">
+                    Captured from the rendered homepage viewport to ground the audit in the actual user-facing layout.
+                </div>
+            </div>
+            {% endif %}
+
+            {% if cta_hierarchy %}
+            <!-- CTA Hierarchy -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons and nav_items %}06{% elif hero_heading or primary_buttons or nav_items %}05{% elif screenshot %}04{% else %}03{% endif %}</div>
+                    <h2>CTA Hierarchy</h2>
+                </div>
+                <div class="evidence-grid">
+                    <div class="evidence-card">
+                        <div class="evidence-label">First CTA</div>
+                        <div class="evidence-value">
+                            {{ cta_hierarchy.first_cta or "No clear primary CTA detected." }}
+                        </div>
+                    </div>
+                    <div class="evidence-card">
+                        <div class="evidence-label">Navigation Items</div>
+                        <div class="evidence-value">
+                            {{ (cta_hierarchy.navbar_items or [])[:8] | join(" | ") }}
+                        </div>
+                    </div>
+                </div>
+
+                {% if cta_hierarchy.button_priority %}
+                <div class="evidence-card" style="margin-top: 12px;">
+                    <div class="evidence-label">Button Priority</div>
+                    <div class="priority-list">
+                        {% for button in cta_hierarchy.button_priority[:6] %}
+                        <div class="priority-row">
+                            <span>{{ button.text }}</span>
+                            <span class="priority-source">{{ button.source }} / P{{ button.priority }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if strategic_signals %}
+            <!-- Website Signals -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons and nav_items %}07{% elif hero_heading or primary_buttons or nav_items %}06{% elif screenshot and cta_hierarchy %}05{% elif screenshot or cta_hierarchy %}04{% else %}03{% endif %}</div>
+                    <h2>Website Signals</h2>
+                </div>
+                <div class="signal-list">
+                    {% for key, signal in strategic_signals.items() %}
+                    <div class="signal-pill">
+                        <strong>{{ key.replace("_", " ").replace("has ", "") | title }}:</strong>
+                        {% if signal.present %}Detected{% else %}Not detected{% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Scorecards -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons and nav_items %}08{% elif hero_heading or primary_buttons or nav_items %}07{% elif screenshot and cta_hierarchy and strategic_signals %}06{% elif screenshot and cta_hierarchy %}05{% elif screenshot or cta_hierarchy %}04{% else %}03{% endif %}</div>
+                    <h2>AI Scorecards</h2>
+                </div>
+                <div class="scorecards">
+                    {% for card in scorecards %}
+                    <div class="scorecard">
+                        <div class="score-top">
+                            <div class="score-label">{{ card.label }}</div>
+                            <div class="score-value">{{ card.score }}<span>/10</span></div>
+                        </div>
+                        <div class="score-track">
+                            <div
+                              class="score-fill"
+                              style="width: {{ card.percent }}%;"
+                            ></div>
+                        </div>
+                        <div class="score-reason">{{ card.reason }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Insights -->
+            <div class="section">
+                <div class="section-heading">
+                    <div class="section-num">{% if hero_heading and primary_buttons and nav_items %}09{% elif hero_heading or primary_buttons or nav_items %}08{% elif screenshot and cta_hierarchy and strategic_signals %}07{% elif screenshot and cta_hierarchy %}06{% elif screenshot or cta_hierarchy %}05{% else %}04{% endif %}</div>
+                    <h2>Strategic Insights</h2>
+                </div>
+                <div class="insight-grid">
+                    {% for section in insight_sections %}
+                    <div class="insight-card">
+                        <div class="insight-title">{{ section.title }}</div>
+                        <ul>
+                            {% for item in section["items"][:5] %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Highlight -->
+            <div class="highlight">
+                <div class="highlight-accent"></div>
+                <div class="highlight-inner">
+                    <div class="highlight-label">Recommended Focus</div>
+                    <div class="highlight-text">
+                        Prioritize the highest-friction customer journey first, then layer AI
+                        automation into lead capture, qualification, follow-up, and reporting.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confidence Indicator -->
+            {% if confidence %}
+            <div class="confidence-section">
+                <div class="confidence-label">Analysis Confidence</div>
+                <div class="confidence-value">{{ (confidence * 100) | int }}%</div>
+            </div>
+            {% endif %}
+
+            <!-- Footer -->
+            <div class="footer">
+                <div>Generated by AI Growth Audit</div>
+                <div>Confidential strategy snapshot</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
