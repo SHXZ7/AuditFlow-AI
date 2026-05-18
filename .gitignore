@@ -10,3 +10,6 @@ build/
 backend/service_account.json
 frontend/node_modules/
 frontend/.next/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
